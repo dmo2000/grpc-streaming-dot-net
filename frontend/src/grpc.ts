@@ -1,10 +1,15 @@
+// src/grpc.ts
+import { createClient, createPromiseClient } from "@connectrpc/connect";
+import { createConnectTransport } from "@connectrpc/connect-web";
+import { PatientMonitor } from "./gen/patient_monitor_pb";
 
-import { PatientMonitorClient } from './generated/patient_monitor_pb_service';
-import { grpc } from '@improbable-eng/grpc-web';
 
-export const monitoringClient = new PatientMonitorClient(
-  'https://localhost:5001',
-  {
-    transport: grpc.CrossBrowserHttpTransport({ withCredentials: false })
-  }
-);
+import { useConfig } from './ConfigContext';
+
+export const getClient = () => {
+  const config = useConfig();
+  const transport = createConnectTransport({
+    baseUrl: config.vitalsBaseUrl,
+  });
+  return createPromiseClient(PatientMonitor, transport);
+}

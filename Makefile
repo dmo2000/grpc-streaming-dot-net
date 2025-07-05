@@ -3,10 +3,10 @@ install-deps:
 	cd backend && dotnet restore
 	npm config set @buf:registry https://buf.build/gen/npm/v1/
 
-generate-js-protos:
-	cd frontend && npx buf generate
+buf-protos:
+	cd frontend && npm run buf
 
-setup: install-deps generate-js-protos
+setup: install-deps buf-protos
 
 run-backend:
 	cd backend && dotnet run

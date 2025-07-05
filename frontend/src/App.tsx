@@ -25,7 +25,12 @@ export default function App() {
       const req = { patientId: "12345" } as VitalRequest;
       const stream = client.streamVitals(req);
       for await (const item of stream) {
-        setVitals(prev => [...prev.slice(config.heartTrendLength), item]);
+        setVitals(prev => {
+          if (prev.length >= config.heartTrendLength) {
+            return [...prev.slice(1), item];
+          }
+          return [...prev, item];
+        });
         setLatestVital(item);
       }
     };

@@ -20,14 +20,14 @@ public class PatientMonitorServiceImpl : PatientMonitorService.PatientMonitorSer
         {
             var vitals = new VitalResponse
             {
-                Timestamp = DateTimeOffset.UtcNow.ToString("O"),
+                Timestamp = DateTimeOffset.UtcNow.ToString(),
                 HeartRate = HEALTHY_HEARTBEAT[count % HEALTHY_HEARTBEAT.Count],
                 Spo2 = Math.Round(95 + _rand.NextDouble() * 5, 1),
                 Temperature = Math.Round(36 + _rand.NextDouble() * 1.5, 1)
             };
 
             await responseStream.WriteAsync(vitals);
-            await Task.Delay(1000);
+            await Task.Delay(5000);
             count++;
         }
     }

@@ -1,0 +1,19 @@
+
+syntax = "proto3";
+option csharp_namespace = "PatientMonitoring";
+package monitoring;
+
+message VitalRequest {
+  string patientId = 1;
+}
+
+message VitalSigns {
+  string timestamp = 1;
+  double heartRate = 2;
+  double spo2 = 3;
+  double temperature = 4;
+}
+
+service PatientMonitor {
+  rpc StreamVitals (VitalRequest) returns (stream VitalSigns);
+}

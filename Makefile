@@ -4,7 +4,7 @@ install-deps:
 	npm config set @buf:registry https://buf.build/gen/npm/v1/
 
 generate-js-protos:
-	cd frontend && npx buf generate buf.build/connectrpc/eliza
+	cd frontend && npx buf generate
 
 setup: install-deps generate-js-protos
 

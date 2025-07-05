@@ -40,18 +40,7 @@ export default function App() {
 
     return (
     <div style={{ padding: "2rem", fontFamily: "sans-serif" }}>
-      <h2>Heart Rate Trend (Last 30s)</h2>
-      <ResponsiveContainer width="100%" height={300}>
-        <LineChart data={vitals}>
-          <CartesianGrid stroke="#ccc" />
-          <XAxis dataKey="time" label={{ value: "Time (s)", position: "insideBottomRight", offset: 0 }} />
-          <YAxis domain={[65, 90]} label={{ value: "BPM", angle: -90, position: "insideLeft" }} />
-          <Tooltip />
-          <Line type="monotone" dataKey="heartRate" stroke="#e63946" strokeWidth={2} dot={false} />
-        </LineChart>
-      </ResponsiveContainer>
-      <h2>🩺 Patient Monitor</h2>
-
+      <h2>Patient Monitor</h2>
       <div style={{ display: "flex", gap: "2rem", marginBottom: "2rem" }}>
         <div style={{ flex: 1 }}>
           <h4>SpO₂</h4>
@@ -71,6 +60,19 @@ export default function App() {
             arc={{subArcs: [{ color: "green" }, { color: "red", limit: 37.5 }]}}
             maxValue={40}
           />
+        </div>
+
+        <div style={{ flex: 1 }}>
+          <h4>Heart Beat</h4>
+                <ResponsiveContainer width="100%" height={300}>
+        <LineChart data={vitals}>
+          <CartesianGrid stroke="#ccc" />
+          <XAxis dataKey="time" label={{ value: "Time (s)", position: "insideBottomRight", offset: 0 }} />
+          <YAxis domain={[65, 90]} label={{ value: "BPM", angle: -90, position: "insideLeft" }} />
+          <Tooltip />
+          <Line type="monotone" dataKey="heartRate" stroke="#e63946" strokeWidth={2} dot={false} />
+        </LineChart>
+      </ResponsiveContainer>
         </div>
       </div>
     </div>

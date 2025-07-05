@@ -1,18 +1,18 @@
 
 using Grpc.Core;
-using Monitoring;
+using PatientMonitoring;
 
-public class PatientMonitorService : PatientMonitor.PatientMonitorBase
+public class PatientMonitorService : PatientMonitoring.PatientMonitorService.PatientMonitorServiceBase
 {
     private readonly Random _rand = new();
 
     public override async Task StreamVitals(VitalRequest request,
-        IServerStreamWriter<VitalSigns> responseStream,
+        IServerStreamWriter<VitalResponse> responseStream,
         ServerCallContext context)
     {
         while (!context.CancellationToken.IsCancellationRequested)
         {
-            var vitals = new VitalSigns
+            var vitals = new VitalResponse
             {
                 Timestamp = DateTimeOffset.UtcNow.ToString("O"),
                 HeartRate = _rand.Next(60, 100),

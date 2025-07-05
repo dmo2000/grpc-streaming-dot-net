@@ -1,8 +1,5 @@
 
-using Microsoft.AspNetCore.Builder;
-using Microsoft.Extensions.DependencyInjection;
-using PatientMonitoring;
-using Grpc.AspNetCore.Web;
+
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddGrpc();

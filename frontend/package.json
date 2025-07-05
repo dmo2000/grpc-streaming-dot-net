@@ -2,7 +2,7 @@
   "name": "patient-monitor-frontend",
   "version": "1.0.0",
   "scripts": {
-    "start": "npm run generate && vite --port 3000",
+    "start": "npm run generate && vite",
     "build": "tsc && vite build",
     "generate": "buf generate"
   },

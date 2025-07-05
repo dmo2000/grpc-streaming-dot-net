@@ -1,4 +1,4 @@
 {
   "heartTrendLength": 30,
-  "vitalsBaseUrl": "/patientMonitor/StreamVitals"
+  "vitalsBaseUrl": ""
 }

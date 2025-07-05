@@ -11,4 +11,4 @@ if (app.Environment.IsDevelopment())
 app.UseRouting();
 app.UseGrpcWeb(new GrpcWebOptions { DefaultEnabled = true });
 app.MapGrpcService<PatientMonitorServiceImpl>().EnableGrpcWeb();
-app.Run();
+await app.RunAsync();

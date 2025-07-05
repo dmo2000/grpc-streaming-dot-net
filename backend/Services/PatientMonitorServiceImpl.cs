@@ -11,9 +11,7 @@ public class PatientMonitorServiceImpl : PatientMonitorService.PatientMonitorSer
         ServerCallContext context)
     {
         var HEALTHY_HEARTBEAT = new List<int>([
-            72, 73, 72, 71, 72, 74, 73, 72, 71, 72,
-            73, 74, 72, 70, 71, 72, 73, 74, 75, 72,
-            71, 72, 73, 71, 72, 73, 74, 72, 71, 72
+            72, 73, 71, 74, 72, 70, 71, 73, 74, 72, 73, 72
         ]);
         int count = 0;
         while (!context.CancellationToken.IsCancellationRequested)

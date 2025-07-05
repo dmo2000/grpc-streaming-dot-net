@@ -15,4 +15,18 @@ export function ConfigProvider({ children }: { children: ReactNode }) {
       .catch(setError);
   }, []);
 
+  if (error) {
+    return <pre style={{ color: "red" }}>Config load failed: {error}</pre>;
+  }
+
+  if (!config) {
+    return <div>Loading configuration...</div>;
+  }
+
+  return (
+    <ConfigContext.Provider value={config}>
+      {children}
+    </ConfigContext.Provider>
+  );
+
 }

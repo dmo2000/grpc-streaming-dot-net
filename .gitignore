@@ -56,3 +56,6 @@ nunit-*.xml
 #Frontend
 node_modules/
 jspm_packages/
+
+# MacOS
+.DS_Store

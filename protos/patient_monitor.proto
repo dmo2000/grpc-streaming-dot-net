@@ -7,13 +7,13 @@ message VitalRequest {
   string patientId = 1;
 }
 
-message VitalSigns {
+message VitalResponse {
   string timestamp = 1;
   double heartRate = 2;
   double spo2 = 3;
   double temperature = 4;
 }
 
-service PatientMonitor {
-  rpc StreamVitals (VitalRequest) returns (stream VitalSigns);
+service PatientMonitorService {
+  rpc StreamVitals (VitalRequest) returns (stream VitalResponse);
 }

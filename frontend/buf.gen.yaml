@@ -3,7 +3,5 @@ plugins:
 - local: ./node_modules/.bin/protoc-gen-es
   out: src/gen
   opt: target=ts
-- local: ./node_modules/.bin/protoc-gen-connect-es
-  out: src/gen
 inputs:
   - proto_file: '../protos/patient_monitor.proto'
